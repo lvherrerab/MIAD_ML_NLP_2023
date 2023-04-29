@@ -1,9 +1,10 @@
-import joblib
-pipeline = joblib.load("car_price_model.pkl")
 from flask import Flask
 from flask_restx import Api, Resource, fields
 from flask_cors import CORS
 import pandas as pd
+import joblib
+
+pipeline = joblib.load("car_price_model.pkl")
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes and origins
