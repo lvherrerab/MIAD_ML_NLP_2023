@@ -5,6 +5,54 @@ import joblib
 import sys
 import os
 
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import make_column_transformer
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import LabelEncoder
+
+
+######## Precio de vehiculos
+
+def predict_precios(Year, Mileage,State,Make,Model):
+
+    modelo = joblib.load(os.path.dirname(__file__) + '/precios.pkl') 
+    
+    
+    #Transformación de variables: 
+     # Crear preprocesador
+    num_features = ['Year', 'Mileage']
+    cat_features = ['State', 'Make', 'Model']
+    
+    preprocessor = ColumnTransformer(transformers=[
+    ('num', StandardScaler(), num_features),
+    ('cat', OneHotEncoder(), cat_features)
+])   
+        
+
+    # Make prediction
+    p1 = modelo.predict_precios
+
+    return p1
+
+
+if __name__ == "__main__":
+    
+    if len(sys.argv) == 1:
+        print('Please add an URL')
+        
+    else:
+
+        url = sys.argv[1]
+
+        p1 = predict_proba(url)
+        
+        print(url)
+        print('Probability of Phishing: ', p1)
+        
+###### Fishing. 
+
 def predict_proba(url):
 
     clf = joblib.load(os.path.dirname(__file__) + '/phishing_clf.pkl') 
