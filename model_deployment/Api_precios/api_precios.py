@@ -4,7 +4,7 @@ from flask_cors import CORS
 import pandas as pd
 import joblib
 
-pipeline = joblib.load("/Users/LinaH/Documents/GitHub/MIAD_ML_NLP_2023/model_deployment/Api_precios/precios_ante.pkl")
+pipeline = joblib.load("/Users/LinaH/Documents/GitHub/MIAD_ML_NLP_2023/model_deployment/Api_precios/precios.pkl")
 
 app = Flask(__name__) # Importa y crea una instancia de la clase Flask para crear una aplicación web. Flask es un framework de Python para construir aplicaciones web.
 CORS(app)  # Enable CORS for all routes and origins # Habilita el soporte de CORS (Cross-Origin Resource Sharing) para permitir el acceso a la API desde diferentes dominios y rutas.
