@@ -43,8 +43,8 @@ class MovieApi(Resource): # Define una clase llamada "CarPriceApi" que hereda de
         plot = data['Texto'] # Extrae los datos de entrada enviados en la solicitud, como el año, kilometraje, estado, marca y modelo del automóvil.
         
         # Load the model
-        modelo = joblib.load(os.path.abspath("/Users/LinaH/Documents/Maestria/Machine_learning_PN/Week_7/Competencia/Api/peliculas.pkl")) 
-        vectorizer= joblib.load(os.path.abspath("/Users/LinaH/Documents/Maestria/Machine_learning_PN/Week_7/Competencia/Api/vectorizer.pkl")) 
+        modelo = joblib.load(os.path.abspath("/Users/LinaH/Documents/GitHub/MIAD_ML_NLP_2023/Semana 7/Api_movie/peliculas.pkl")) 
+        vectorizer= joblib.load(os.path.abspath("/Users/LinaH/Documents/GitHub/MIAD_ML_NLP_2023/Semana 7/Api_movie/vectorizer.pkl")) 
       
         
         #Procesamiento de texto
